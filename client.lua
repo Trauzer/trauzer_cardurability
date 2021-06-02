@@ -1,3 +1,7 @@
+------------------------------------------------------------------------
+------------------------------ ESX SH*T --------------------------------
+------------------------------------------------------------------------
+
 ESX              = nil
 local PlayerData = {}
 
@@ -19,7 +23,7 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 ------------------------------------------------------------------------
-------------------------------- Elo ------------------------------------
+------------------------------ SCRIPT ----------------------------------
 ------------------------------------------------------------------------
 
 local inVeh = false
@@ -68,14 +72,14 @@ Citizen.CreateThread(function()
             local ped = PlayerPedId()
             local veh = GetVehiclePedIsIn(ped, false)
 
-            -- Getting max breaking value
+            -- Getting max break value
 
             if brake == nil then
                 local hash = GetEntityModel(veh)
                 brake = GetVehicleModelMaxBraking(hash)
             end
 
-            -- Getting amount of wheels
+            -- Getting the amounts of wheels
 
             if numwhel == nil then
                 numwhel = GetVehicleNumberOfWheels(veh)
@@ -143,7 +147,7 @@ useengine = 0
 engineprecent = 100
 curengine = 1.0
 
---Function who needed work every frame
+--Function which is needed to work every frame
 
 Citizen.CreateThread(function()
     while true do
@@ -157,7 +161,7 @@ Citizen.CreateThread(function()
                 SetVehicleEngineOn(veh, false, true, true)
             end
 
-            --Setting value of power for engine
+            -- Setting the value of power for engine
 
             SetVehicleCheatPowerIncrease(veh, curengine)
 
@@ -168,7 +172,9 @@ Citizen.CreateThread(function()
     end
 end)
 
-
+------------------------------------------------------------------------
+------------------------------ DEBUG -----------------------------------
+------------------------------------------------------------------------
 
 RegisterCommand('status', function(source, args)
     TriggerEvent('chat:addMessage', {color = {255, 0, 0}, args = {"Status: ", "Hamulce: " .. brakeprecent .. "%"}})
